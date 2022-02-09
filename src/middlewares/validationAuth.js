@@ -1,6 +1,6 @@
 import sanitizeData from "../schemas/sanitizer.js";
 import schemaSignUp from "../schemas/schemaSignUp.js"
-import db from "../../db.js";
+
 
 
 export async function validateSchemaSignUp(req, res, next){
@@ -10,10 +10,7 @@ export async function validateSchemaSignUp(req, res, next){
       res.status(422).send(validation.error.details)
       return;
     }
-    const alreadyInDB = await db.collection("users").findOne({userData})
-          if(alreadyInDB){
-              return res.sendStatus(409)
-    }
+    
     res.locals.user = {
         firstname : sanitizeData(req.body.firstname),
         lastname : sanitizeData(req.body.lastname),
