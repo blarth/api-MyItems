@@ -1,5 +1,5 @@
-import sanitizeData from "../schemas/Sanitizer.js";
-import schemaSignUp from "../schemas/SchemaSignup.js"
+import sanitizeData from "../schemas/sanitizer.js";
+import schemaSignUp from "../schemas/schemaSignUp.js"
 import db from "../../db.js";
 
 
