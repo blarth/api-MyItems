@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken"
 
 export async function signUp(req, res) {
   
-    const userData = req.body
+    const userData = res.locals.user
     const alreadyInDB = await db.collection("users").findOne({userData})
           if(alreadyInDB){
               return res.sendStatus(409)
@@ -24,7 +24,7 @@ export async function signUp(req, res) {
   }
 
   export async function signIn(req, res) {
-    const user = req.body
+    const user = res.locals.user
     
     try {
         const participant = await db.collection("users").findOne({email:user.email})
