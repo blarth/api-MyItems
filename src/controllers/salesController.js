@@ -8,7 +8,7 @@ export async function resgisterSales(req, res) {
     
     try {
         
-        await db.collection("sales").insertOne( {buyer : userData._id , boughtItems : req.body} );
+        await db.collection("sales").insertOne( {buyer : userData._id , boughtItems : req.body});
         res.sendStatus(201);
           
     } catch (error) {
